@@ -38,7 +38,7 @@ void CALLBACK waveInProc(HWAVEIN hwi,
 
     if( WIM_DATA == uMsg )
 	{
-		fwrite(pwh->lpData, sizeof(char), pwh->dwBytesRecorded, fp_pcm); //�洢Ϊpcm�ļ�
+		fwrite(pwh->lpData, sizeof(char), pwh->dwBytesRecorded, fp_pcm); //�洢Ϊpcm�ļ�
 		printf("cap %d \n",capnum++);
 		wave_out.input((unsigned char*)pwh->lpData);
 
@@ -55,7 +55,7 @@ void CALLBACK waveOutProc(HWAVEOUT hwo,
 	 static int outnum = 0;
 	 if(uMsg == WOM_DONE)
 	 {
-	    printf("out %d \n",outnum++);
+	        printf("out %d \n",outnum++);
 		WAVEHDR* p_wavehdr = (WAVEHDR *) dwParam1;
 		waveout* p_wvo = (waveout *) dwInstance;
 		p_wvo->m_buf_free.push_back((char *) p_wavehdr);
